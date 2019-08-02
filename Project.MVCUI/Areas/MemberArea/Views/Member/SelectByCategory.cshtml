@@ -1,0 +1,73 @@
+﻿@model Tuple<IPagedList<Product>, List<Category>, List<SubCategory>>
+@{
+    ViewBag.Title = "SelectByCategory";
+    Layout = "~/Areas/MemberArea/Views/Shared/_ShoppingLayout.cshtml";
+}
+
+@section Kategoriler{
+    <br /><br /><br /><br />    <br /> <br />
+
+    @foreach (Category item in Model.Item2)
+    {
+        if (item.ID == ViewBag.KategoriID)
+        {
+            <li>
+                @Html.ActionLink(item.CategoryName, "SelectByCategory", "Member", new { id1 = item.ID }, new { @class = "btn btn-primary" })
+            </li>
+        }
+        else
+        {
+            if (item.Products.Exists(x => x.SubCategoryID == null))
+                {
+            <li>
+                @Html.ActionLink(item.CategoryName, "SelectByCategory", "Member", new { id1 = item.ID }, new { @class = "btn btn-primary" })
+            </li>
+            }
+                    
+                <li>
+                        <button type="button"  class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                            @item.CategoryName
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                            @foreach (SubCategory sitem in Model.Item3)
+                            {
+                                if (item.ID==sitem.CategoryID && item.Products.Exists(x => x.SubCategoryID != null)) { 
+                            <li>@Html.ActionLink(sitem.SubName, "SelectByCategory", "Member", new { id2 = sitem.ID @*sitem.Category.SubCategories.Where(x=>x.CategoryID==item.ID)*@}, new { @class = "btn btn-primary"})</li>}
+                            }
+                        </ul>
+                    </li> 
+            
+        }
+    }
+
+<div class="row product-list">
+    <div class="col-lg-offset-2" style="float:right;">
+        @Html.PagedListPager(Model.Item1, page => Url.Action("SelectByCategory", new { page, id1 = ViewBag.KategoriID,id2=ViewBag.AltKategoriID }))
+    </div>
+    @*<br /> <br /> <br /> <br /> <br />*@
+
+
+    @foreach (Product item in Model.Item1)
+    {
+        <div class="col-md-4">
+            <section class="panel">
+                <div class="pro-img-box">
+                    <img src="@item.ImagePath" alt="" />
+                    <a href="@Url.Action("AddToCart","Member",new { id=item.ID})" class="adtocart">
+                        <i class="icon-shopping-cart"></i>
+                    </a>
+                </div>
+                <div class="panel-body text-center">
+                    <h4>
+                        <a href="#" class="pro-title">
+                            @item.ProductName
+                        </a>
+                    </h4>
+                    <p class="price">@(Convert.ToDecimal(item.UnitPrice).ToString("C2"))</p>
+                </div>
+            </section>
+        </div>
+    }
+</div>}

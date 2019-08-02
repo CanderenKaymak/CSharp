@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\bin\Debug\Project.VM.dll.config
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\bin\Debug\Project.VM.dll
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\bin\Debug\Project.VM.pdb
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\obj\Debug\Project.VM.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\obj\Debug\Project.VM.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\obj\Debug\Project.VM.csproj.CopyComplete
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\obj\Debug\Project.VM.dll
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.VM\obj\Debug\Project.VM.pdb

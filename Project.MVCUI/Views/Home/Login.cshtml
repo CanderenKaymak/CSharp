@@ -1,0 +1,48 @@
+﻿@model User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/RegisterLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+    <div class="col-lg-6">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+            </div>
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "user" }))
+            {
+                <div class="form-group">
+                    @Html.ValidationMessageFor(x=>x.Email)
+                    @Html.TextBoxFor(x=>(x.Email),new  {@class= "form-control form-control-user",placeholder="Enter your Email Address" })
+                   
+                </div>
+                <div class="form-group">
+                    @Html.ValidationMessageFor(x=>x.Password)
+                    @Html.TextBoxFor(x=>(x.Password),new { @class="form-control form-control-user",placeholder="Enter your Password",type="password"})
+                    
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                    </div>
+                </div>
+                @Html.ActionLink("Login","Index","Member",new { @class="btn btn-primary btn-user btn-block"})
+               
+               
+            }
+
+            <hr>
+            <div class="text-center">
+                <a class="small" href="forgot-password.html">Forgot Password?</a>
+            </div>
+            <div class="text-center">
+                @Html.ActionLink("Don't you have an account yet?","Register","Home",new { @class="small"})
+                
+            </div>
+        </div>
+    </div>
+</div>
+

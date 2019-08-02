@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.MODEL\bin\Debug\Project.MODEL.dll
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.MODEL\bin\Debug\Project.MODEL.pdb
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.MODEL\obj\Debug\Project.MODEL.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.MODEL\obj\Debug\Project.MODEL.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.MODEL\obj\Debug\Project.MODEL.dll
+C:\Users\User\Desktop\Yemek@WEB\Yemek@WEB\Project.MODEL\obj\Debug\Project.MODEL.pdb

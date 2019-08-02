@@ -1,0 +1,64 @@
+﻿@model Category
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Tools/FlatAdmin/js/jquery.js"></script>
+
+
+<div class="panel-body">
+    <div class="form">
+        @using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post, new { @class = "cmxform form-horizontal tasi-form", enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label for="firstname" class="control-label col-lg-2">Kategori Adı </label>
+                <div class="col-lg-3">
+                    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname" class="control-label col-lg-2">Kategori Açıklaması</label>
+                <div class="col-lg-3">
+                    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-2">Görsel Yükleme</label><br />
+                <div class="col-md-9">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <div class="fileupload-new thumbnail" style="width:200px;height:150px;">
+                            <img src="@Model.ImagePath" alt="Alternate Text" />
+                        </div>
+                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width:200px;max-height:150px;line-height:20px;">
+                        </div>
+                        @if (Model.ImagePath != "Dosya bos")
+                        {
+                            @Html.CheckBox("resmiSil")<b style="color:red">Resmi Sil?</b>
+                        }
+                        <div>
+                            <span class="btn btn-white btn-file">
+                                <span class="fileupload-new"><i class="icon-paper-clip"></i> Görsel Seçiniz</span>
+                                <span class="fileupload-exists"><i class="icon-undo"></i> Görsel Değiştir</span>
+                                <input name="resim" type="file" class="default" />
+                            </span>
+                            <a href="#" class="btn  btn-danger btn-icon-split fileupload-exists" data-dismiss="fileupload"><i class="icon-trash"></i> Kaldır </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button class="btn-lg btn-danger" type="submit"> Kaydet</button>
+                    @Html.ActionLink("İptal", "CategoryList", "Category", null, new { @class = "btn-default btn-lg" })
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+<link href="~/Tools/FlatAdmin/css/bootstrap.min.css" rel="stylesheet" />
+<script type="text/javascript" src="~/Tools/FlatAdmin/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<link href="~/Tools/Frontend/css/sb-admin-2.min.css" rel="stylesheet" />

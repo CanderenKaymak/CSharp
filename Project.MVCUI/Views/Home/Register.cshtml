@@ -1,0 +1,65 @@
+﻿@model Tuple<User,UserProfile>
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/RegisterLayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+    <div class="col-lg-7">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+            </div>
+            @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "user" }))
+            {
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        @Html.ValidationMessageFor(x => x.Item2.FirstName)
+                        @Html.TextBoxFor(x => x.Item2.FirstName, new { @class = "form-control form-control-user", placeholder = "FirstName" })
+
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.ValidationMessageFor(x => x.Item2.LastName)
+                        @Html.TextBoxFor(x => x.Item2.LastName, new { @class = "form-control form-control-user", placeholder = "LastName" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.ValidationMessageFor(x => x.Item1.Email)
+                    @Html.TextBoxFor(x => x.Item1.Email, new { @class = "form-control form-control-user", placeholder = "Email" })
+
+                </div>
+                <div class="form-group">
+                    @Html.ValidationMessageFor(x => x.Item1.UserName)
+                    @Html.TextBoxFor(x => x.Item1.UserName, new { @class = "form-control form-control-user ", placeholder = "UserName" })
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        @Html.ValidationMessageFor(x => x.Item1.Password)
+                        @Html.PasswordFor(x => x.Item1.Password, new { @class = "form-control form-control-user", placeholder = "Password" })
+
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.ValidationMessageFor(x => x.Item1.ConfirmPassword)
+                        @Html.PasswordFor(x => x.Item1.ConfirmPassword, new { @class = "form-control form-control-user", placeholder = "Re-Password" })
+                    </div>
+
+                </div>
+                @Html.ActionLink("Register Account", "Register", null, new { @class = " btn btn-primary btn-user btn-block" })
+            }
+
+            <hr>
+            <div class="text-center">
+                @Html.ActionLink("Forgot Password?", "Forgotten", null, new { @class = "small" })
+
+            </div>
+            <div class="text-center">
+                @Html.ActionLink("Already Have an Account? LOGIN!", "Login", null, new { @class = "small" })
+
+            </div>
+        </div>
+</div>
+</div>

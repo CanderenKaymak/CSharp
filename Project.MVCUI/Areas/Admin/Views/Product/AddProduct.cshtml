@@ -1,0 +1,89 @@
+﻿@model Tuple<List<Category>, List<SubCategory>, Product>
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Tools/FlatAdmin/js/jquery.js"></script>
+<div class="panel-body">
+    <div class="form">
+        <h3 style="color:crimson">@ViewBag.Secim</h3>
+        @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { @class = "cmxform form-horizontal tasi-form", enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label for="firstname" class="control-label col-lg-2">Ürün İsmi</label>
+                @Html.TextBoxFor(x => x.Item3.ProductName, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="lastname" class="control-label col-lg-2"> Ürün İçeriği </label>
+                @Html.TextBoxFor(x => x.Item3.ProductContent, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="unitp" class="control-label col-lg-2"> Ürün Fiyatı </label>
+                @Html.TextBoxFor(x => x.Item3.UnitPrice, new { @class = "form-control", type="number"})
+            </div>
+            <div class="form-group">
+                <label for="username" class="control-label col-lg-2">
+                    Kategori
+                </label>
+                <br /><br />
+                <div class="col-lg-4">
+                    @Html.DropDownListFor(x => x.Item3.CategoryID, new SelectList(Model.Item1, "ID", "CategoryName"), " Kategori Seçiniz", new { @class = "btn btn-warning dropdown-toggle " })
+                   
+                    <br />
+                    @Html.CheckBox("yayindami")<b style="color:crimson">Menüde Mi?</b>
+                    <br />
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <label for="userp" class="control-label ">Alt Kategori</label>
+                        <br />
+                        @Html.DropDownListFor(x => x.Item3.SubCategoryID, new SelectList(Model.Item2, "ID", "SubName"), "Alt Kategori Seçiniz", new { @class = "btn btn-warning dropdown-toggle " })
+                        <br />
+                        @Html.EnumDropDownListFor(x => x.Item3.ProductRegion, "Bölge Seçiniz", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-2">Görsel Yükleme</label>
+                <br />
+                <div class="col-md-9">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                        </div>
+                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                        <div>
+                            <span class="btn btn-white btn-file">
+                                <span class="fileupload-new"><i class="icon-paper-clip"></i> Görsel Seçiniz </span>
+                                <span class="fileupload-exists"><i class="icon-undo"></i>Değiştir</span>
+                                <input name="resim" type="file" class="default" />
+                            </span>
+                            <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="icon-trash"></i> Kaldır</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <br />
+
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+
+                    <button class="btn btn-danger" type="submit">Kaydet</button>
+                    @Html.ActionLink("İptal", "ProductList", null, new { @class = "btn btn-default" })
+
+                </div>
+                <br /><br />
+
+            </div>
+           
+
+        }
+    </div>
+</div>
+<script type="text/javascript" src="~/Tools/FlatAdmin/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+
