@@ -21,6 +21,7 @@ namespace Project.MVCUI.Controllers
             return View(db.Categories.ToList());
         }
         // GET: Home
+        // Kullanıcının onaylanması
         public ActionResult Register()
         {
             return View();
